@@ -51,12 +51,40 @@ const JWTStrategy = passportJWT.Strategy;
 const ExtractJWT = passportJWT.ExtractJwt;
 ```
 
-3. Create a new initialize function which takes passport as a parameter: 
+3. Create a new `initialize` function which takes passport as a parameter: 
+``` javascript
+function initialize(passport) {
 
+}
+```
 
+4. Export this function so it can be used in `server.js`
 
+``` javascript
+module.exports = initialize;
+```
+ 5. Inside the initialize function define a new `passport.use` function to configure the new JWT Strategy: 
+ ``` javascript
+    passport.use('jwt', new JWTStrategy({
+        jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
+        secretOrKey   : process.env.JWT_SECRET
+      },
+       function (jwtPayload, done) {
+         return User.findById(jwtPayload.sub)
+         .then(user => 
+         {
+           return done(null, user);
+         }
+       ).catch(err => 
+       {
+         return done(err);
+       });
+      }
+      ))
+}
 
- 
+```
+
 
   
 
