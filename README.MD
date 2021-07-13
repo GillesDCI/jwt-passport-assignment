@@ -85,13 +85,25 @@ module.exports = initialize;
 
 ```
 
+## Task 5 - Import passport config inside the server file.
+
+1. Import passport inside `server.js and run the initalize function.  
+``` javascript
+const initializePassport = require('./passport-config');
+initializePassport(passport);
+```
+## Task 6 - Testing 
+
+1. Test out the application using Postman, Insomnia or any other API dev tool. 
+
 
   
 
 # Bonus (Optional):
-- You can use database models instead of array values.
-- Authenticate the user instead of automatically creating an object. 
-
+- You can secure a new route using `passport.authenticate`: 
+``` javascript
+router.get('/list', passport.authenticate('jwt', { session: false }), controller.list)
+```
 
 
 

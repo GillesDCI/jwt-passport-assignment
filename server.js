@@ -1,5 +1,7 @@
 const express = require('express');
-require('dotenv').config;
+const mongoose = require('mongoose');
+const passport = require('passport');
+require('dotenv').config();
 
 const app = express();
 
