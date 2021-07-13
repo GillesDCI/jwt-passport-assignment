@@ -38,8 +38,24 @@ This project assumes you've already had experience with:
       app.use('/user',userRoutes);
 ```
 
+## Task 4 - Configure passport
 
-## Task 4 - Configure passport:
+1. Create a new file `passport-config.js` in the root folder of our project. 
+
+2. Inside the file make the necessary imports:
+``` javascript
+const User = require('./models/User');
+const bcrypt = require('bcrypt');
+const passportJWT = require('passport-jwt');
+const JWTStrategy = passportJWT.Strategy;
+const ExtractJWT = passportJWT.ExtractJwt;
+```
+
+3. Create a new initialize function which takes passport as a parameter: 
+
+
+
+
  
 
   
