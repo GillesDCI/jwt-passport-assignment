@@ -45,7 +45,6 @@ This project assumes you've already had experience with:
 2. Inside the file make the necessary imports:
 ``` javascript
 const User = require('./models/User');
-const bcrypt = require('bcrypt');
 const passportJWT = require('passport-jwt');
 const JWTStrategy = passportJWT.Strategy;
 const ExtractJWT = passportJWT.ExtractJwt;
