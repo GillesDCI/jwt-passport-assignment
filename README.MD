@@ -29,7 +29,7 @@ This project assumes you've already had experience with:
 ## Task 3 - Set up the routes inside the server file
    1. Open `server.js` and import the userRoutes file already predefined in this project.
 ``` javascript
-     const userRoutes = require('./routes/userRoutes');
+     import userRoutes from "./routes/userRoutes.js";
 ```
 
    2. Register the routes for usage by the app:
@@ -44,8 +44,8 @@ This project assumes you've already had experience with:
 
 2. Inside the file make the necessary imports:
 ``` javascript
-const User = require('./models/User');
-const passportJWT = require('passport-jwt');
+import User from "./models/User";
+import passportJWT from "passport-jwt";
 const JWTStrategy = passportJWT.Strategy;
 const ExtractJWT = passportJWT.ExtractJwt;
 ```
@@ -60,7 +60,7 @@ function initialize(passport) {
 4. Export this function so it can be used in `server.js`
 
 ``` javascript
-module.exports = initialize;
+export default initialize;
 ```
  5. Inside the initialize function define a new `passport.use` function to configure the new JWT Strategy: 
  ``` javascript
@@ -88,7 +88,7 @@ module.exports = initialize;
 
 1. Import passport inside `server.js and run the initalize function.  
 ``` javascript
-const initializePassport = require('./passport-config');
+import initializePassport from "./passport-config";
 initializePassport(passport);
 ```
 ## Task 6 - Testing 
