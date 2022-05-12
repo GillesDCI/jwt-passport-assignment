@@ -20,7 +20,7 @@ export const login = async (req, res) => {
 
     if (checkPassword) {
       // Generate JWT token
-      const token = authHelper.generateToken(user);
+      const token = generateToken(user);
       res.status(200).json({ token });
     } else {
       return res.status(400).json({ message: "Passwords not matching" });
