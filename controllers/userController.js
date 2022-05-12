@@ -26,7 +26,7 @@ export const login = async (req, res) => {
       return res.status(400).json({ message: "Passwords not matching" });
     }
   } catch (error) {
-    return done(error);
+    return res.status(400).json({message:'Error happened'})
   }
 };
 
